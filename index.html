@@ -5,48 +5,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Domingo ¡Club de baile!</title>
   <style>
-   body {
-  font-family: sans-serif;
-  margin: 0; /* importante para que la imagen ocupe toda la pantalla */
-  background-image: url('./assets/background-min.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed; /* mantiene la imagen estática */
-  display: flex;
-  flex-direction: column;
-  align-content: space-between;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  min-height: 100vh; /* asegura que el body siempre tenga el alto completo de la pantalla */
-}
+    body {
+        font-family: sans-serif;
+        margin: 0; /* importante para que la imagen ocupe toda la pantalla */
+        background-image: url('./assets/background-min.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed; /* mantiene la imagen estática */
+        display: flex;
+        flex-direction: column;
+        align-content: space-between;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        min-height: 100vh; /* asegura que el body siempre tenga el alto completo de la pantalla */
+        }
     header {
-      text-align: center;
-      margin-bottom: 40px;
-      display:none;
+        text-align: center;
+        margin-bottom: 40px;
+        display:none;
     }
     main{
-      display: inline-flex;
-      padding: 40px 70px;
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
-      border-radius: 8px;
-      border: 4px solid #362950;
-      background: rgba(255, 255, 255, 0.70);
-      box-shadow: 8.893px 8.893px 0px 0px rgba(144, 109, 175, 0.31);
-      backdrop-filter: blur(2px);border-radius: 8px;
-      border: 4px solid #362950;
-      background: rgba(255, 255, 255, 0.70);
-      box-shadow: 8.893px 8.893px 0px 0px rgba(144, 109, 175, 0.31);
-      backdrop-filter: blur(2px);
+        display: inline-flex;
+        padding: 40px 70px;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        border-radius: 8px;
+        border: 4px solid #362950;
+        background: rgba(255, 255, 255, 0.70);
+        box-shadow: 8.893px 8.893px 0px 0px rgba(144, 109, 175, 0.31);
+        backdrop-filter: blur(2px);border-radius: 8px;
+        border: 4px solid #362950;
+        background: rgba(255, 255, 255, 0.70);
+        box-shadow: 8.893px 8.893px 0px 0px rgba(144, 109, 175, 0.31);
+        backdrop-filter: blur(2px);
     }
     footer {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 0.9em;
-      color: #666;
+        text-align: center;
+        margin-top: 40px;
+        font-size: 0.9em;
+        color: #666;
+    }
+    a{
+         text-decoration: none;
+    }
+    a:visited {
+        color: inherit;
+    }
+    .link{
+        display: flex;
+        width: 300px;
+        padding: 8px;
+        align-items: center;
+        gap: 16px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.90);
+        outline:none;
+    }
+    .link:hover{
+        outline:solid 2px rgba(144, 109, 175, 100);
+        
+    }
+    .link-list{
+        display: flex;
+        flex-direction: column;
+        gap:16px;
     }
   </style>
 </head>
@@ -57,9 +82,16 @@
   </header>
 
   <main>
-    <img src="./assets/domingo_club_de_baile_logo.png"></img>
-    <h2>Andamos construyendo</h2>
-    
+    <img src="./assets/domingo-club-de-baile-logo.png"></img>
+    <div class="link-list">
+        <a href="mailto:domingoclubdebaile@gmail.com"><div class="link"><img src="assets/contact.png" class="icon">Contacto</div></a>
+        <a href="https://www.instagram.com/domingoclubdebaile"><div class="link"><img src="assets/instagram.png" class="icon">Instagram</div></a>
+        <a href="https://podcasts.apple.com/es/podcast/domingo-club-de-baile/id1616463237"><div class="link"><img src="assets/apple-podcast.png" class="icon">Apple Podcast</div></a>
+        <a href="https://domingoclubdebaile.substack.com/podcast"><div class="link"><img src="assets/substack.png" class="icon">Substack</div></a>
+        <a href="https://www.youtube.com/@domingoclubdebaile"><div class="link"><img src="assets/youtube.png" class="icon">Youtube</div></a>
+        <a href="https://go.ivoox.com/sq/1192965"><div class="link"><img src="assets/ivoox.png" class="icon">Ivoox</div></a>
+        <a href="https://radiorelativa.eu/resident/domingo-club-de-baile"><div class="link"><img src="assets/radio-relativa.png" class="icon">Radio relativa</div></a>
+    </div>
   </main>
 
   <footer>
