@@ -8,11 +8,11 @@ body {
     background-position: center center;
     background-attachment: fixed;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
+    align-items: left;
     min-height: 100vh;
     box-sizing: border-box;
-    padding: 20px; /* Añadimos padding para evitar que el contenido toque los bordes en pantallas pequeñas */
+    padding: 40px; /* Añadimos padding para evitar que el contenido toque los bordes en pantallas pequeñas */
 }
 
 /* --- Estilos del contenedor principal --- */
