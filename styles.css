@@ -8,14 +8,25 @@ body {
     background-position: center center;
     background-attachment: fixed;
     display: flex;
-    justify-content: left;
-    align-items: left;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
     box-sizing: border-box;
-    padding: 40px; /* Añadimos padding para evitar que el contenido toque los bordes en pantallas pequeñas */
 }
 
-/* --- Estilos del contenedor principal --- */
+/* --- NUEVO: Contenedor principal para alinear los dos bloques --- */
+.wrapper {
+    display: flex;
+    align-items: center; /* Alinea verticalmente la lista y el video */
+    justify-content: center;
+    gap: 48px; /* Espacio entre la lista de enlaces y el vídeo */
+    padding: 24px;
+    width: 100%;
+    max-width: 1200px; /* Ancho máximo del layout */
+    box-sizing: border-box;
+}
+
+/* --- Estilos del contenedor de enlaces --- */
 main {
     display: flex;
     flex-direction: column;
@@ -27,19 +38,22 @@ main {
     background: rgba(255, 255, 255, 0.70);
     box-shadow: 8px 8px 0px rgba(144, 109, 175, 0.31);
     backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px); /* Prefijo para mayor compatibilidad */
-    max-width: 300px; /* Ancho máximo para que no se estire demasiado en pantallas grandes */
-    width: 100%;
+    -webkit-backdrop-filter: blur(2px);
+    
+    /* Flexbox para controlar el tamaño */
+    flex: 1; /* Permite que crezca y se encoja */
+    min-width: 280px; /* Ancho mínimo antes de que se comprima demasiado */
+    max-width: 320px;
 }
 
 .logo {
-  max-width: 200px; /* Usamos max-width para que sea responsive */
-  height: auto; /* Mantiene la proporción de la imagen */
+  max-width: 200px;
+  height: auto;
 }
 
 /* --- Lista de enlaces --- */
 .link-list {
-    list-style: none; /* Quitamos los puntos de la lista */
+    list-style: none;
     padding: 0;
     margin: 0;
     width: 100%;
@@ -50,7 +64,7 @@ main {
 
 .link {
     display: flex;
-    width: 100%; /* El ancho se adapta al contenedor */
+    width: 100%;
     padding: 8px;
     align-items: center;
     gap: 16px;
@@ -58,25 +72,44 @@ main {
     background: rgba(255, 255, 255, 0.90);
     color: #1c1c1c;
     text-decoration: none;
-    box-sizing: border-box; /* Asegura que el padding no incremente el ancho total */
-    transition: all 0.2s ease-in-out; /* Transición suave para hover y focus */
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
 }
 
 /* --- Estados interactivos para los enlaces (Accesibilidad) --- */
 .link:hover,
-.link:focus-visible { /* :focus-visible es mejor que :focus para accesibilidad */
+.link:focus-visible {
     outline: solid 3px #906DAF;
-    outline-offset: 2px; /* Separa el borde del elemento */
-    transform: scale(1.05); /* Efecto visual agradable */
+    outline-offset: 2px;
+    transform: scale(1.05);
     background: white;
 }
 
 .icon {
-  width: 24px;  /* Tamaño fijo para los iconos */
+  width: 24px;
   height: 24px;
 }
 
-/* --- Clase para ocultar contenido visualmente pero mantenerlo para lectores de pantalla (Accesibilidad) --- */
+/* --- NUEVO: Contenedor del Iframe para hacerlo responsivo --- */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* Proporción 16:9 (9 / 16 = 0.5625) */
+    height: 0;
+    flex: 2; /* Le da más prioridad de espacio al video que al main (2 vs 1) */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0; /* Quita el borde por defecto del iframe */
+    border-radius: 8px; /* Opcional: para que coincida con la estética */
+}
+
+/* --- Clase de accesibilidad --- */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -87,4 +120,20 @@ main {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* --- NUEVO: Media Query para pantallas pequeñas (móviles) --- */
+@media (max-width: 900px) {
+    .wrapper {
+        flex-direction: column; /* Apila los elementos verticalmente */
+        gap: 32px;
+    }
+
+    main {
+        max-width: 500px; /* Permite que la tarjeta de enlaces sea más ancha */
+    }
+
+    .video-container {
+        max-width: 600px; /* Limita el tamaño del video en la vista móvil */
+    }
 }
